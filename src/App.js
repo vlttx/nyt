@@ -3,8 +3,10 @@ import './App.css';
 import fetch from 'isomorphic-fetch'
 import { CardList } from './components/card-list/CardList'
 
-const BASE_URL = 'https://api.nytimes.com/svc/books/v3/reviews.json?author='
+
 const API_KEY = process.env.REACT_APP_NYT_API_KEY
+const BASE_URL = 'https://api.nytimes.com/svc/movies/v2/reviews/search.json?'+`api-key=${API_KEY}&query=`
+
 
 
 class App extends React.Component {
@@ -74,9 +76,10 @@ class App extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
 
-     fetch(BASE_URL.concat(this.state.searchTerm, `&api-key=${API_KEY}`))
+     fetch(BASE_URL.concat(this.state.searchTerm))
       .then(res => res.json())
       .then(res => this.setState({ reviews: res.results }));
+
   };
 
   handleChange = (event) => {
@@ -86,14 +89,15 @@ class App extends React.Component {
 
 
   render() {
+          console.log(this.state.reviews)
   return (
     <div className="App">
       <form onSubmit={this.handleSubmit}>
-      <h2>Search Book Reviews</h2>
+      <h2>Search Movie Reviews</h2>
       <input type="text" onChange={this.handleChange}/>
       <button type="submit">Submit</button>
       </form>
-     <CardList>{this.state.reviews.map((review, index) =><h1 key={index}>{review.book_title} by {review.book_author}</h1>)}</CardList> 
+     <CardList reviews={this.state.reviews}/> 
     </div>
   );
 }
