@@ -5,7 +5,7 @@ import { CardList } from './components/card-list/CardList'
 
 
 const API_KEY = process.env.REACT_APP_NYT_API_KEY
-const BASE_URL = 'https://api.nytimes.com/svc/movies/v2/reviews/search.json?'+`api-key=${API_KEY}&query=`
+const BASE_URL = `https://api.nytimes.com/svc/movies/v2/reviews/search.json?api-key=${API_KEY}&query=`
 
 
 
@@ -13,7 +13,8 @@ class App extends React.Component {
 
   state = {
     searchTerm: "",
-    reviews: []
+    reviews: [],
+    criticsPicks: []
 
    //  [{
    //    "url": "http://www.nytimes.com/2001/11/04/books/books-in-brief-fiction-poetry-851302.html",
@@ -67,11 +68,11 @@ class App extends React.Component {
    //  }]
   }
 
-  // componentDidMount(){
-  //   fetch(BASE_URL.concat(`Stephen King`,`&api-key=${API_KEY}`))
-  //     .then(res => res.json())
-  //     .then(resJson => console.log(resJson));
-  // }; COULD DO MOST RECENT MAYBE JUST FOR FUN :)
+  componentDidMount(){
+    fetch(`https://api.nytimes.com/svc/movies/v2/reviews/search.json?api-key=${API_KEY}&critics-pic`)
+      .then(res => res.json())
+      .then(resJson => this.setState({ criticsPicks: resJson.results }));
+  };
 
   handleSubmit = (event) => {
     event.preventDefault();
@@ -89,7 +90,6 @@ class App extends React.Component {
 
 
   render() {
-          console.log(this.state.reviews)
   return (
     <div className="App">
       <form onSubmit={this.handleSubmit}>
@@ -97,7 +97,9 @@ class App extends React.Component {
       <input type="text" onChange={this.handleChange}/>
       <button type="submit">Submit</button>
       </form>
-     <CardList reviews={this.state.reviews}/> 
+      <br/>
+      <br/>
+     { this.state.reviews.length === 0 ? <div><h2>Critics' Picks:</h2><CardList reviews={this.state.criticsPicks}/></div> : <CardList reviews={this.state.reviews}/>} 
     </div>
   );
 }
