@@ -9,6 +9,7 @@ export const Card = (props) => {
     <div className="card-container">
     	<img alt={props.mov.headline} src={props.mov.multimedia.src}/>
     	<h1> {props.mov.display_title}</h1>
+    	<h5> {props.mov.headline}</h5>
     	<p><a href={props.mov.link.url}>{props.mov.display_title}</a></p>
 		<p>{props.mov.summary_short}</p>
     </div>
