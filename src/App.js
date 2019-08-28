@@ -39,6 +39,10 @@ class App extends React.Component {
 
   }
 
+  handlePicksChange = (e) => {
+    this.setState({searchPicks: e.target.value})
+  }
+
 
   render() {
     const { criticsPicks, searchPicks } = this.state;
@@ -46,12 +50,13 @@ class App extends React.Component {
   return (
     <div className="App">
       <form onSubmit={this.handleSubmit}>
+      <h1>Movie Reviews from the New York Times</h1>
       <h2>Search Movie Reviews</h2>
       <input className="search"type="text" onChange={this.handleChange} placeholder={"Search all reviews"} />
       </form>
       <br/>
       <br/>
-     { this.state.reviews.length === 0 ? <div><h2>Critics' Picks:</h2><SearchBox placeholder={"Search picks"} handleChange={(e)=>{this.setState({searchPicks: e.target.value})}}/><br/><br/>
+     { this.state.reviews.length === 0 ? <div><h2>Critics' Picks:</h2><SearchBox placeholder={"Search picks"} handleChange={this.handlePicksChange}/><br/><br/>
      { this.state.searchPicks !== "" ? <CardList reviews={filteredPicks}/>:<CardList reviews={this.state.criticsPicks}/>}</div> : <CardList reviews={this.state.reviews}/>}
     </div>
   );

@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  font-family: 'Hepta Slab', serif;
+
 }
 
 .App-logo {
@@ -30,4 +32,19 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.App h1 {
+   font-size:  45px;
+   color: white;
+}
+
+.card-container h1 {
+  color: rgba(7, 27, 52, 1);
+
+}
+
+h2 {
+  font-size: 30px;
+  color:  white;
 }

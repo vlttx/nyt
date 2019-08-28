@@ -10,7 +10,7 @@ export const Card = (props) => {
     	<img alt={props.mov.headline} src={props.mov.multimedia.src}/>
     	<h1> {props.mov.display_title}</h1>
     	<h5> {props.mov.headline}</h5>
-    	<a href={props.mov.link.url}>{props.mov.display_title}</a>
+    	<a href={props.mov.link.url}>Read Full Review</a>
 		<p>{props.mov.summary_short}</p>
     </div>
   );
