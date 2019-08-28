@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import fetch from 'isomorphic-fetch'
 import { CardList } from './components/card-list/CardList'
+import { SearchBox } from './components/search-box/SearchBox'
 
 
 const API_KEY = process.env.REACT_APP_NYT_API_KEY
@@ -46,13 +47,12 @@ class App extends React.Component {
     <div className="App">
       <form onSubmit={this.handleSubmit}>
       <h2>Search Movie Reviews</h2>
-      <input type="text" onChange={this.handleChange}/>
-      <button type="submit">Submit</button>
+      <input className="search"type="text" onChange={this.handleChange} placeholder={"Search all reviews"} />
       </form>
       <br/>
       <br/>
-     { this.state.reviews.length === 0 ? <div><h2>Critics' Picks:</h2><input type="search" placeholder="search picks" onChange={(e)=>{this.setState({searchPicks: e.target.value})}}/><br/><br/>
-     {this.state.searchPicks !== "" ? <CardList reviews={filteredPicks}/>:<CardList reviews={this.state.criticsPicks}/>}</div> : <CardList reviews={this.state.reviews}/>}
+     { this.state.reviews.length === 0 ? <div><h2>Critics' Picks:</h2><SearchBox placeholder={"Search picks"} handleChange={(e)=>{this.setState({searchPicks: e.target.value})}}/><br/><br/>
+     { this.state.searchPicks !== "" ? <CardList reviews={filteredPicks}/>:<CardList reviews={this.state.criticsPicks}/>}</div> : <CardList reviews={this.state.reviews}/>}
     </div>
   );
 }
