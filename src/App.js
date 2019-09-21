@@ -52,7 +52,7 @@ class App extends React.Component {
       <form onSubmit={this.handleSubmit}>
       <h1>Movie Reviews from the New York Times</h1>
       <h2>Search Movie Reviews</h2>
-      <input className="search"type="text" onChange={this.handleChange} placeholder={"Search all reviews"} />
+      <input className="search" type="text" onChange={this.handleChange} placeholder={"Search all reviews"} />
       </form>
       <br/>
       <br/>
