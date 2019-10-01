@@ -12,7 +12,3 @@ export const Card = props => {
 		</div>
 	);
 };
-
-// {`http://covers.openlibrary.org/b/isbn/${iSBN}-S.jpg`}
-
-// <img alt="book cover" src={`https://pictures.abebooks.com/isbn/${iSBN}-us.jpg`}/>
