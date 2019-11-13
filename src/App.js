@@ -66,7 +66,7 @@ class App extends React.Component {
         <br />
         {this.state.reviews.length === 0 ? (
           <div>
-            <h2>Search critics' picks by headline:</h2>
+            <h2>Search current critics' picks by headline:</h2>
             <SearchBox
               placeholder={"Headline"}
               handleChange={this.handlePicksChange}
