@@ -80,7 +80,19 @@ class App extends React.Component {
             )}
           </div>
         ) : (
-          <CardList reviews={this.state.reviews} />
+          <>
+            <CardList reviews={this.state.reviews} />
+            <div>
+              <h2>Critics' Picks:</h2>
+              <SearchBox
+                placeholder={"Search by headline"}
+                handleChange={this.handlePicksChange}
+              />
+            </div>
+            <br />
+            <br />
+            <CardList reviews={this.state.criticsPicks} />
+          </>
         )}
       </div>
     );

@@ -1,22 +1,22 @@
 .card-list {
-	width: 85%;
-	margin: 0 auto;
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr;
-	grid-gap: 20px;
+  width: 85%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
 }
 
 @media screen and (max-width: 1200px) {
-	.card-list {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		grid-gap: 10px;
-	}
+  .card-list {
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+  }
 }
 
 @media screen and (max-width: 600px) {
-	.card-list {
-		display: grid;
-		grid-template-columns: 1fr;
-	}
+  .card-list {
+    margin: 2%;
+  }
 }
