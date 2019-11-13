@@ -66,9 +66,9 @@ class App extends React.Component {
         <br />
         {this.state.reviews.length === 0 ? (
           <div>
-            <h2>Critics' Picks:</h2>
+            <h2>Search critics' picks by headline:</h2>
             <SearchBox
-              placeholder={"Search by headline"}
+              placeholder={"Headline"}
               handleChange={this.handlePicksChange}
             />
             <br />
@@ -82,15 +82,14 @@ class App extends React.Component {
         ) : (
           <>
             <CardList reviews={this.state.reviews} />
-            <div>
-              <h2>Critics' Picks:</h2>
-              <SearchBox
-                placeholder={"Search by headline"}
-                handleChange={this.handlePicksChange}
-              />
-            </div>
+
             <br />
             <br />
+            <h1>Search critics' picks by headline</h1>
+            <SearchBox
+              placeholder={"Headline"}
+              handleChange={this.handlePicksChange}
+            />
             <CardList reviews={this.state.criticsPicks} />
           </>
         )}
