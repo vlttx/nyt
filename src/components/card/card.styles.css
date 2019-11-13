@@ -13,5 +13,16 @@
   width: 100%;
 }
 .card-container:hover {
-  transform: scale(1.01);
+  transform: scale(1.05);
+}
+@media screen and (max-width: 1200px) {
+  .card-container {
+    margin: 20px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .card-container {
+    margin: 20px;
+  }
 }

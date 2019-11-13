@@ -3,15 +3,13 @@
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 5px;
+  grid-gap: 15px;
 }
 
 @media screen and (max-width: 1200px) {
   .card-list {
     display: flex;
     flex-direction: column;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 10px;
   }
 }
 
